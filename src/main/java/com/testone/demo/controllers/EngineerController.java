@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -41,6 +42,18 @@ public class EngineerController {
         return engineerService.findBySkills(skill);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Engineer> findById(@PathVariable("id") Long id){
+        Engineer engineer = engineerService.findById(id);
+        return ResponseEntity.ok().body(engineer);
+    }
+
+    @GetMapping("skills/{id}")
+    public ResponseEntity<Set> findEngineerSkills(@PathVariable("id") Long id) {
+
+        Engineer engineer = engineerService.findById(id);
+        return ResponseEntity.ok().body(engineer.getSkills());
+    }
 
 
 }

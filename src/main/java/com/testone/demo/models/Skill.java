@@ -1,6 +1,8 @@
 package com.testone.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -17,6 +19,7 @@ public class Skill extends BasicEntity {
     private String description;
 
     @ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
+    @JsonBackReference
     private Set<Engineer> engineers = new HashSet<>();
 
 

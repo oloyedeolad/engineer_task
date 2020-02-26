@@ -1,6 +1,8 @@
 package com.testone.demo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
@@ -14,6 +16,7 @@ public class Engineer extends BasicEntity {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "engineer_skills", joinColumns = @JoinColumn(name = "engineer_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    @JsonManagedReference
     private Set<Skill> skills = new HashSet<>();
 
     public String getName() {
