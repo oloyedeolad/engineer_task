@@ -1,6 +1,7 @@
 package com.testone.demo.services.impl;
 
 import com.testone.demo.models.Engineer;
+import com.testone.demo.models.Skill;
 import com.testone.demo.repositories.EngineerRepository;
 import com.testone.demo.services.EngineerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,11 @@ public class EngineerServiceImpl implements EngineerService {
     @Override
     public List<Engineer> findBySkills(String skill) {
         return engineerRepository.findAllBySkills_title(skill);
+    }
+
+    @Override
+    public List<Engineer> findBySkills(Skill skill) {
+        return engineerRepository.findAllBySkills(skill);
     }
 
 

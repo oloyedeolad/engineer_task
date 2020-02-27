@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface EngineerRepository extends JpaRepository<Engineer, Long> {
     List<Engineer> findAllBySkills_title(String string);
+    List<Engineer> findAllBySkills (Skill skill);
 }
