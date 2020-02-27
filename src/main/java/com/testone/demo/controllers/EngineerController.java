@@ -48,11 +48,17 @@ public class EngineerController {
         return ResponseEntity.ok().body(engineer);
     }
 
-    @GetMapping("skills/{id}")
+    @GetMapping("/{id}/skills")
     public ResponseEntity<Set> findEngineerSkills(@PathVariable("id") Long id) {
 
         Engineer engineer = engineerService.findById(id);
         return ResponseEntity.ok().body(engineer.getSkills());
+    }
+
+
+    @GetMapping("/skills/{id}")
+    public ResponseEntity<List> findEngineerBySkill(@PathVariable("id") Long id) {
+        return ResponseEntity.ok().body(this.engineerService.findBySkills(id));
     }
 
 
