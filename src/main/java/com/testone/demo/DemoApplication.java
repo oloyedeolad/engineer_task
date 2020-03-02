@@ -1,17 +1,7 @@
 package com.testone.demo;
 
-import com.testone.demo.models.Engineer;
-import com.testone.demo.models.Skill;
-import com.testone.demo.repositories.EngineerRepository;
-import com.testone.demo.repositories.SkillRepository;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -20,7 +10,7 @@ public class DemoApplication {
 
         SpringApplication.run(DemoApplication.class, args);
     }
-        @Bean
+       /* @Bean
         public CommandLineRunner mappingDemo(SkillRepository skillRepository,
                                              EngineerRepository engineerRepository) {
             return args -> {
@@ -46,6 +36,6 @@ public class DemoApplication {
                 engineerRepository.save(createdEngineer);
             };
         }
-
+*/
 
 }

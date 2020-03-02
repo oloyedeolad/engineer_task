@@ -31,7 +31,7 @@ public class EngineerController {
         return  ResponseEntity.created(new URI("/api/engineer/" + engineerCreated.getId())).body(engineerCreated);
     }
 
-    @GetMapping
+    @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     public List<Engineer> findAll() {
         return engineerService.findAll();
