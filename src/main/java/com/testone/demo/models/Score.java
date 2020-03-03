@@ -19,9 +19,9 @@ public class Score extends BasicEntity {
 
     @ManyToOne
     @JoinColumn(name = "engineer_id")
-    private Engineer engineer;
+    Engineer engineer;
     @ManyToOne()
     @JoinColumn(name = "skill_id")
-    private Skill skill;
-    private int score;
+    Skill skill;
+    private int mark;
 }

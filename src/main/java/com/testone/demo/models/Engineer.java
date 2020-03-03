@@ -25,7 +25,7 @@ public class Engineer extends BasicEntity {
     @JsonManagedReference
     private Set<Skill> skills = new HashSet<>();
 
-    @OneToMany(mappedBy = "engineer")
+    @OneToMany(mappedBy = "engineer", cascade = CascadeType.ALL)
     private  Set<Score> score;
 
     public Engineer(String name) {

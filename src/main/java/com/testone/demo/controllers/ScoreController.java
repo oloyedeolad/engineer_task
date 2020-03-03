@@ -48,7 +48,7 @@ public class ScoreController {
         double a = 0;
         for (Score score: list)
         {
-             a += score.getScore();
+             a += score.getMark();
         }
 
         return a/list.size();
