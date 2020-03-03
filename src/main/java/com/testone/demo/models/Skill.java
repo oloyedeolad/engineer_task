@@ -2,17 +2,11 @@ package com.testone.demo.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 
@@ -30,6 +24,9 @@ public class Skill extends BasicEntity {
     @ManyToMany(mappedBy = "skills", fetch = FetchType.LAZY)
     @JsonBackReference
     private Set<Engineer> engineers = new HashSet<>();
+
+    @OneToMany(mappedBy = "skill")
+    private Set<Score> score;
 
 
     public Skill(String title, String description) {

@@ -2,11 +2,11 @@ package com.testone.demo.models;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 
@@ -25,6 +25,9 @@ public class Engineer extends BasicEntity {
     @JsonManagedReference
     private Set<Skill> skills = new HashSet<>();
 
+    @OneToMany(mappedBy = "engineer")
+    private  Set<Score> score;
+
     public Engineer(String name) {
         this.name = name;
     }
@@ -32,5 +35,7 @@ public class Engineer extends BasicEntity {
     public Engineer(){
 
     }
+
+
 
 }
