@@ -37,11 +37,12 @@ public class ScoreController {
 
     }
 
-
+    @GetMapping("/top/{id}")
     public ResponseEntity<List<Score>> findTopNEngineer(@RequestBody int pet, @PathVariable("id") Long along) {
         List<Score> list =   scoreService.findTopNEngineer(pet, along);
-        return ResponseEntity.ok().body(list);
+        return ResponseEntity.ok().body(list.subList(0, Math.toIntExact(along)));
     }
+
 
 
     private Double getAverage(List<Score> list) {
