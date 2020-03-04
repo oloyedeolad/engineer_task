@@ -12,7 +12,7 @@ public interface ScoreRepository extends JpaRepository<Score, Long> {
     List<Score> findAllByEngineer_Id(Long along);
 
     @Query("SELECT s FROM Score s WHERE skill_id = ?1 ORDER BY mark DESC ")
-    List<Score> findTopNByScore (int N,  Long skill_id);
+    List<Score> findTopNByScore (int N);
 
 
 }

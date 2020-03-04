@@ -37,10 +37,13 @@ public class ScoreController {
 
     }
 
-    @GetMapping("/top/{id}")
-    public ResponseEntity<List<Score>> findTopNEngineer(@RequestBody int pet, @PathVariable("id") Long along) {
-        List<Score> list =   scoreService.findTopNEngineer(pet, along);
-        return ResponseEntity.ok().body(list.subList(0, Math.toIntExact(along)));
+    @GetMapping("/top/{id}/{len}")
+    public ResponseEntity<List<Score>> findTopNEngineer(@PathVariable("len") int pet, @PathVariable("id") int along) {
+        List<Score> list =   scoreService.findTopNEngineer(pet);
+        if (list.size() < along || list.size() < 1) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.ok().body(list.subList(0, along));
     }
 
 

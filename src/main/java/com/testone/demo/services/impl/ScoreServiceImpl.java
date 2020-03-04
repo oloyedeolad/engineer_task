@@ -47,7 +47,7 @@ public class ScoreServiceImpl implements ScoreService {
     }
 
     @Override
-    public List<Score> findTopNEngineer(int n, Long skill_id) {
-        return scoreRepository.findTopNByScore(n, skill_id);
+    public List<Score> findTopNEngineer(int n) {
+        return scoreRepository.findTopNByScore(n);
     }
 }

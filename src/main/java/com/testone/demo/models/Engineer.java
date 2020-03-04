@@ -23,7 +23,7 @@ public class Engineer extends BasicEntity {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "engineer_skills", joinColumns = @JoinColumn(name = "engineer_id"), inverseJoinColumns = @JoinColumn(name = "skill_id"))
     @JsonManagedReference
-    private Set<Skill> skills = new HashSet<>();
+    private Set<Skill> skills = new HashSet<Skill>();
 
     @OneToMany(mappedBy = "engineer", cascade = CascadeType.ALL)
     private  Set<Score> score;

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ScoreService extends CrudService<Score, Long> {
     List<Score> findByEngineerId(Long along);
-    List<Score> findTopNEngineer(int n, Long skill_id);
+    List<Score> findTopNEngineer(int n);
 }

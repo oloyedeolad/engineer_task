@@ -72,7 +72,7 @@ public class ScoreRepositoryTest {
     @Test
     public void TestFindBySkillHighestScore() {
 
-        List<Score> scoreList = scoreRepository.findTopNByScore(1, 1L);
+        List<Score> scoreList = scoreRepository.findTopNByScore(1);
         assertThat(!scoreList.isEmpty());
         assertThat(scoreList.size() > 0);
         assertThat(scoreList.get(0).getMark() > scoreList.get(1).getMark());
